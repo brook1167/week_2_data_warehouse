@@ -75,8 +75,6 @@ For more info, check out these official docs:
 
 https://airflow.apache.org/docs/apache-airflow/stable/start/docker.html
 https://airflow.apache.org/docs/docker-stack/build.html
-https://airflow.apach
-
-    e.org/docs/docker-stack/recipes.html
+https://airflow.apache.org/docs/docker-stack/recipes.html
 
 
