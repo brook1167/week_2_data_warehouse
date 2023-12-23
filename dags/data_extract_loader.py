@@ -6,18 +6,17 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 
 
-cwd=os.getcwd()
-sys.path.append(f'../scripts/')
+cwd = os.getcwd()
+sys.path.append('../scripts/')  # Verify this path
 sys.path.append(f'../pgsql/')
 sys.path.append(f'../temp_storage/')
-sys.path.insert(0,os.path.abspath(os.path.dirname(__file__)))
+sys.path.insert(0,'../scripts/')
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 from extractor import DataExtractor
 import db_util
 
-data_extractor=DataExtractor()
+data_extractor = DataExtractor()
 
-# def separate_data(ti):
-#     data_extractor.separate(file_name='20181024_d1_0830_0900.csv',number=5)
 
 def extract_data(ti):
 
@@ -32,16 +31,10 @@ def create_table():
 
 def populate__vehicles_table(ti):
     trajectory_file_name = ti.xcom_pull(key="trajectory",task_ids='extract_from_file')
-    # vehicle_file_name = ti.xcom_pull(key="vehicle",task_ids='extract_from_file')
-    # trajectory_data,vehicle_data=combined_df['trajectory'], combined_df['vehicle']
     db_util.insert_to_table(trajectory_file_name, 'trajectories',from_file=True)
-    # db_util.insert_to_table(vehicle_file_name, 'vehicles',from_file=True)
 
 def populate_trajectory_table(ti):
-    # trajectory_file_name = ti.xcom_pull(key="trajectory",task_ids='extract_from_file')
     vehicle_file_name = ti.xcom_pull(key="vehicle",task_ids='extract_from_file')
-    # trajectory_data,vehicle_data=combined_df['trajectory'], combined_df['vehicle']
-    # db_util.insert_to_table(trajectory_file_name, 'trajectories',from_file=True)
     db_util.insert_to_table(vehicle_file_name, 'vehicles',from_file=True)
 
 def clear_memory_vehicle(ti):
@@ -52,10 +45,8 @@ def clear_memory_vehicle(ti):
     # os.remove(f'../temp_storage/{vehicle_file_name}')
 
 def clear_memory_trajectory(ti):
-    # trajectory_file_name = ti.xcom_pull(key="trajectory",task_ids='extract_from_file')
     vehicle_file_name = ti.xcom_pull(key="vehicle",task_ids='extract_from_file')
 
-    # os.remove(f'../temp_storage/{trajectory_file_name}')
     os.remove(f'../temp_storage/{vehicle_file_name}')
 
 # Specifing the default_args
