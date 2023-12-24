@@ -26,8 +26,7 @@ Tech Stack
 ### Setup - Official Version
  (For the section on the Custom/Lightweight setup, scroll down)
 
- #### Setup
-  [Airflow Setup with Docker, through official guidelines](1_setup_official.md)
+
 
  #### Execution
  
