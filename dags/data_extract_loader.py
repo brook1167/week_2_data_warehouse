@@ -39,10 +39,10 @@ def populate_trajectory_table(ti):
 
 def clear_memory_vehicle(ti):
     trajectory_file_name = ti.xcom_pull(key="trajectory",task_ids='extract_from_file')
-    # vehicle_file_name = ti.xcom_pull(key="vehicle",task_ids='extract_from_file')
+    
 
     os.remove(f'../temp_storage/{trajectory_file_name}')
-    # os.remove(f'../temp_storage/{vehicle_file_name}')
+    
 
 def clear_memory_trajectory(ti):
     vehicle_file_name = ti.xcom_pull(key="vehicle",task_ids='extract_from_file')
