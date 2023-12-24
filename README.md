@@ -23,10 +23,6 @@ Tech Stack
 
 - Redash: Redash is an open source web application. It’s used for clearing databases and visualizing the results.
  
-### Setup - Official Version
- (For the section on the Custom/Lightweight setup, scroll down)
-
-
 
  #### Execution
  
