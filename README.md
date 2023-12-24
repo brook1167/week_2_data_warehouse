@@ -16,7 +16,8 @@ Tech Stack
 
 - Python: An object oriented programming language used to write the data extracting, loading and transforming scripts.
 
--DBT(Data built tool): is a data transformation tool that enables data analysts and engineers to transform, test, and document data in the cloud data warehouse.
+- DBT(Data built tool): is a data transformation tool that enables data analysts and engineers to transform, test, and document data in the cloud data   
+    warehouse.
 
 - PostgreSQL: is a free and open-source relational database management system emphasizing extensibility and SQL compliance.
 
