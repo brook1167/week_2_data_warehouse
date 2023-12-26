@@ -10,8 +10,8 @@ from airflow_dbt.operators.dbt_operator import (
 )
 from airflow.utils.dates import days_ago
 cwd=os.getcwd()
-DBT_FOLDER=f"{cwd}/../dbt/traffic_data"
-PROFILE_FOLDER=f"{cwd}/../dbt/"
+DBT_FOLDER=f"{cwd}/../dbt_files/"
+PROFILE_FOLDER=f"{cwd}/../dbt_files/"
 
 default_args = {
   'dir': f'{DBT_FOLDER}',
@@ -24,15 +24,7 @@ default_args = {
 
 with DAG(dag_id='dbt', default_args=default_args, schedule_interval='@daily') as dag:
 
-#   dbt_seed = DbtSeedOperator(
-#     task_id='dbt_seed',
-#   )
 
-    # permit = BashOperator(
-    #     task_id="permission",
-    #     # bash_command="cd ../../opt/dbt/traffic_data && dbt run",
-    #     bash_command=f"cd ../../opt/ && chmod 777 -R dbt/",
-    # )
 
     dbt_snapshot = DbtSnapshotOperator(
     task_id='dbt_snapshot',
