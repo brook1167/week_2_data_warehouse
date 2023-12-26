@@ -21,7 +21,7 @@ default_args = {
 
 with DAG(
     "Traffic_dbt_dag",
-    start_date=datetime(2022, 9, 20),
+    start_date=datetime(2023, 12, 22),
     description="DAG that invokes dbt runs",
     schedule_interval=None,
     catchup=False,
