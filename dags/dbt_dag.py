@@ -10,8 +10,8 @@ from airflow_dbt.operators.dbt_operator import (
 )
 from airflow.utils.dates import days_ago
 cwd=os.getcwd()
-DBT_FOLDER=f"{cwd}/../dbt_files/"
-PROFILE_FOLDER=f"{cwd}/../dbt_files/"
+DBT_FOLDER=f"{cwd}/../dbt_files"
+PROFILE_FOLDER=f"{cwd}/../dbt_files"
 
 default_args = {
   'dir': f'{DBT_FOLDER}',
