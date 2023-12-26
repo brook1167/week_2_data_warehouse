@@ -62,7 +62,7 @@ with DAG(
     dag_id='extractor_loader_pg',
     default_args=default_args,
     description='this loads our data to the database',
-    start_date=datetime(2022,9,20,3),
+    start_date=datetime(2023,12,22,3),
     schedule_interval='@daily',
     catchup=False
 ) as dag:
