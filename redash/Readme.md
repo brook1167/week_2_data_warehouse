@@ -1,4 +1,4 @@
-# please create an environment file here
+# env file
 `.env` Shoud contain the following
 ```bash
 REDASH_HOST=http://localhost/redash
